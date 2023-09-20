@@ -4,10 +4,10 @@
 #include <RFID.h>
 #include <Servo.h> 
 
-LiquidCrystal_I2C lcd(0x3F, 16, 2);     // Set the LCD address (0x27) and size of lcd (16 chars and 2 line display)
+LiquidCrystal_I2C lcd(0x3F, 16, 2);     // Set the LCD address (0x3F) and size of lcd (16 chars and 2 line display)
 
 
-RFID rfid(10, 9);       //D10:pin of tag reader SDA. D9:pin of tag reader RST 
+RFID rfid(10, 9);       //D10:pin of tag reader SDA. D9 : pin of tag reader RST 
 unsigned char status; 
 unsigned char str[MAX_LEN]; //MAX_LEN is 16: size of the array 
 
@@ -49,15 +49,15 @@ void loop()
 { 
     lcd.clear();                      // clear the LCD
   lcd.setCursor (0, 0);             // Set the cursor to 1st line
-  lcd.print("Door Closed");         // print the message
+  lcd.print("Door Closed");        
   lcd.setCursor (4, 1);             // Set the cursor to 2nd line
-  lcd.print("Check Admin");        // print the message
+  lcd.print("Check Admin");       
   delay(2000);
   lcd.clear();                      // clear the LCD
   lcd.setCursor (3, 0);             // Set the cursor
   lcd.print("Door");       // print the message
   lcd.setCursor (8, 1);             // Set the cursor
-  lcd.print("Opened");        // print the message
+  lcd.print("Opened");       
   delay(2000);
   
   if (rfid.findCard(PICC_REQIDL, str) == MI_OK)   //Wait for a tag to be placed near the reader
