@@ -1,21 +1,43 @@
-This code is for controlling a door lock system using an Arduino. Here's a quick description of what the code does:
+Project Name: Arduino RFID Door Lock System
 
-It includes several libraries for different components such as a LiquidCrystal display, RFID reader, SPI communication, and a servo motor.
+Description:
+This Arduino-based RFID Door Lock System is designed for securing access to a physical space or door using RFID cards or tags. The system incorporates various components, including an RFID reader, servo motor, LCD display, and status LEDs, to provide controlled access.
 
-It initializes the LiquidCrystal display, RFID reader, and sets up some pins for LED indicators and a servo motor.
+Key Features:
 
-The system uses RFID (Radio-Frequency Identification) technology to control access to the door. It defines an array of RFID serial numbers (accessGranted) that are allowed access.
+Access Control: Only authorized RFID cards are granted access to the secured area.
+Visual Feedback: Status information is displayed on an LCD, and LEDs indicate access status.
+Servo Motor: A servo motor controls the locking mechanism, providing physical security.
+Customizable: Easily configure authorized RFID card IDs and servo motor positions to suit your needs.
+Debugging Support: Use the serial monitor for debugging and monitoring system activity.
+Usage:
 
-There are two positions for the servo motor (lockPos and unlockPos) that control the locking and unlocking of the door.
+Place an authorized RFID card/tag near the reader.
+The system checks the card's ID against a list of authorized IDs.
+If the card is authorized, the door lock is opened using the servo motor.
+Visual feedback is provided via LEDs and an LCD display.
+Hardware Requirements:
 
-The code continuously checks for RFID cards or tags placed near the reader. When a card is detected, it reads the card's ID number and checks if it matches any of the allowed access IDs.
+Arduino board (e.g., Arduino Uno)
+RFID reader module
+Servo motor
+LCD display (I2C)
+Status LEDs
+RFID cards or tags
+Installation and Configuration:
 
-If the detected card's ID matches an allowed ID, it unlocks the door by moving the servo motor to the "unlock" position and turns on a green LED.
+Ensure proper connections between components.
+Upload the provided Arduino code to your board.
+Configure authorized RFID card IDs in the code.
+Upload the code to your Arduino board.
+Contributions:
+Contributions, bug reports, and feature requests are welcome. Feel free to fork and submit pull requests.
 
-If the detected card's ID does not match any of the allowed IDs, it denies access, locks the door by moving the servo motor to the "lock" position, and turns on a red LED.
+License:
+This project is open source, YOU ARE FREE TO USE IT.
 
-The LCD display provides status messages, and the system waits for the next RFID card to be placed near the reader.
+Author:
+Soufiane Hammouda
 
-The loop continuously repeats, checking for RFID cards and updating the display and lock status as necessary.
-
-In summary, this code creates a simple RFID-based door lock system with visual feedback using LEDs and an LCD display. It grants or denies access based on the RFID card's ID number and controls the door's lock mechanism using a servo motor.
+Acknowledgments:
+Special thanks to the Arduino community and libraries used in this project.
